@@ -1,0 +1,69 @@
+server:
+  port: 7777
+  session:
+    cookie:
+      name: frontend
+  context-path: /frontend
+spring:
+  application:
+    name: 前端接口服务系统
+  cache:
+    type: redis
+    cache-names: systemCache
+  session:
+    store-type: redis
+  profiles:
+    active: @spring.profiles.active@
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 500Mb
+      max-request-size: 500Mb
+  jpa:
+    open-in-view: true
+    database: mysql
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+        format_sql: false
+      jadira:
+        usertype:
+          autoRegisterUserTypes: true
+          javaZone: Asia/Shanghai
+          databaseZone: Asia/Shanghai
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    # 本地开发需要自己配置对应的数据库
+    url: jdbc:mysql://127.0.0.1:3306/ueboot-starter?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+    tomcat:
+      max-wait: 500
+      max-active: 200
+      initial-size: 5
+      max-idle: 5
+      min-idle: 5
+  redis:
+    host: 127.0.0.1
+    password: None
+    port: 6379
+    database: 1
+    timeout: 60000
+    pool:
+      max-active: 20
+      max-wait: 1000
+      max-idle: 100
+      min-idle: 5
+logging:
+  level:
+    root: info
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %clr(%-5level) %logger{50}[%L] -%msg%n"
+    file: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %clr(%-5level) %logger{50}[%L] -%msg%n"
+    # 设置显示sql参数值
+#    org.hibernate: info
+#    org.hibernate.type.descriptor.sql.BasicBinder: trace
+#    org.hibernate.type.descriptor.sql.BasicExtractor: trace

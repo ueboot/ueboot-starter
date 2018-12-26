@@ -1,0 +1,22 @@
+stages:
+- frontend
+
+# 当前gitlab-runner运行在需要部署的服务器上，所以部署时直接执行命令即可
+# 要求静态页面打包后直接放置到java工程当中的/src/resources/static目录下。或者自己写命令将文件copy到nginx目录当中
+frontend-build-deploy:
+  stage: frontend
+  script:
+  - "cd ./frontend/frontend && pwd && ls -lrt"
+  - "yarn install && yarn run build"
+  - "cd ../../ && mvn package -B -Dmaven.test.skip=true -Dspring.profiles.active=pro "
+  - docker build -t frontend:latest .
+  - "ls -lrt && echo 'deploying'"
+  - " if [ `docker ps |grep 'frontend'|wc -l` -eq 0 ];  then echo 'not running';else docker stop frontend; fi "
+  - " if [ `docker ps -a |grep 'frontend'|wc -l` -eq 0 ];  then echo 'not stop container';else docker rm frontend; fi "
+  - docker run -d --name admin-zt -p 7777:7777 --restart=always -v /applog/:/applog -v /etc/localtime:/etc/localtime:ro frontend:latest
+  tags:
+  - docker-test
+  only:
+    variables:
+    - $CI_COMMIT_TITLE == "frontend"
+

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.ueboot.starter</groupId>
+    <artifactId>starter-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>entity</module>
+        <module>repository</module>
+        <module>service</module>
+        <module>common</module>
+        <module>backend</module>
+        <module>frontend</module>
+    </modules>
+    <packaging>pom</packaging>
+    <name>ueboot-starter-parent</name>
+    <url>http://www.ueboot.com</url>
+
+    <parent>
+        <groupId>com.ueboot</groupId>
+        <artifactId>ueboot-parent</artifactId>
+        <version>2.2.0</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <!--整个项目的版本号，这里修改后，所有子模块版本号统一变更为此版本号-->
+        <currentProject.version>1.0.0-SNAPSHOT</currentProject.version>
+        <java.version>1.8</java.version>
+        <swagger2.version>2.6.1</swagger2.version>
+    </properties>
+
+    <!--在这里仅仅用来声明一下整个工程当中可以用到的jar包，这里定义对应的版本号，
+        子模块就不需要写明版本号了。可以继承这里的版本号-->
+    <dependencyManagement>
+
+        <dependencies>
+            <!--当前工程自己的模块声明-->
+            <dependency>
+                <groupId>com.ueboot.starter</groupId>
+                <artifactId>common</artifactId>
+                <version>${currentProject.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ueboot.starter</groupId>
+                <artifactId>entity</artifactId>
+                <version>${currentProject.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ueboot.starter</groupId>
+                <artifactId>repository</artifactId>
+                <version>${currentProject.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ueboot.starter</groupId>
+                <artifactId>service</artifactId>
+                <version>${currentProject.version}</version>
+            </dependency>
+            <!-- SwaggerUI -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--这里的声明用于说明所有子模块都会引用到这些jar包，子模块无需重复引用-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <!--多环境配置-->
+        <profile>
+            <id>dev</id>
+            <properties>
+                <spring.profiles.active>dev</spring.profiles.active>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>pro</id>
+            <properties>
+                <spring.profiles.active>pro</spring.profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>uat</id>
+            <properties>
+                <spring.profiles.active>uat</spring.profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+
+    <!--maven私服地址-->
+    <repositories>
+        <repository>
+            <id>Center</id>
+            <name>Nexus</name>
+            <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>Center</id>
+            <name>Nexus Repositories</name>
+            <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

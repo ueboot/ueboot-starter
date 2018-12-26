@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+*.iml
+admin-view/yarn.lock
+admin-view/node_modules
+/admin-view/package-lock.json
+
+*/target/
+*/node_modules/
+
+/log.outdir_IS_UNDEFINED
+*.log
