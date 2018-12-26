@@ -1,3 +1,15 @@
+# 快速使用
+- 前提条件，需要有Mysql数据库、Redis服务、JDK1.8
+- 代码checkout后，使用IDEA导入，或者Eclipse都可以,当前项目采用maven构建
+- 修改backend工程当中的src/main/resources/application.yml 数据库配置文件和reids配置文件
+- 导入项目中的sql目录下的ueboot-shiro.sql文件到指定的数据库
+- backend后台管理系统启动方式
+    - 后端Java服务，找到com.ueboot.starter.backend.BackEndApplication 类，直接右键Run即可
+    - 前端页面，使用命令窗口进入backend/backend-view目录，第一次执行需要先执行yarn install 或者npm install，之后执行 npm run start
+    - 前端具体的使用方式查看README.md
+    - 默认账号： root 密码：111111
+- frontend启动方式与后台管理类似，但是没有默认的登录界面等
+
 # 项目结构与约定说明
 
 ## 1. backend
