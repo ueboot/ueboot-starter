@@ -1,10 +1,4 @@
-/*
- Navicat Premium Data Transfer
 
- Source Server Type    : MySQL
- Source Server Version : 80012
- Date: 26/12/2018 12:20:24
-*/
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
@@ -97,9 +91,6 @@ INSERT INTO `sys_permission` VALUES (347, NULL, NULL, 'root', '2018-10-15 08:43:
 INSERT INTO `sys_permission` VALUES (348, NULL, NULL, 'root', '2018-10-15 08:43:41', 'root', '2018-10-15 08:43:41', 14, 2);
 INSERT INTO `sys_permission` VALUES (349, NULL, NULL, 'root', '2018-10-15 08:43:41', 'root', '2018-10-15 08:43:41', 15, 2);
 INSERT INTO `sys_permission` VALUES (350, NULL, NULL, 'root', '2018-10-15 08:43:41', 'root', '2018-10-15 08:43:41', 16, 2);
-INSERT INTO `sys_permission` VALUES (351, NULL, NULL, 'root', '2018-10-15 08:43:41', 'root', '2018-10-15 08:43:41', 27, 2);
-INSERT INTO `sys_permission` VALUES (352, NULL, NULL, 'root', '2018-10-15 08:43:41', 'root', '2018-10-15 08:43:41', 30, 2);
-INSERT INTO `sys_permission` VALUES (353, NULL, NULL, 'root', '2018-10-15 08:43:41', 'root', '2018-10-15 08:43:41', 29, 2);
 INSERT INTO `sys_permission` VALUES (388, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 3, 1);
 INSERT INTO `sys_permission` VALUES (389, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 4, 1);
 INSERT INTO `sys_permission` VALUES (390, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 8, 1);
@@ -118,13 +109,6 @@ INSERT INTO `sys_permission` VALUES (402, NULL, NULL, 'root', '2018-10-23 23:38:
 INSERT INTO `sys_permission` VALUES (403, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 14, 1);
 INSERT INTO `sys_permission` VALUES (404, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 15, 1);
 INSERT INTO `sys_permission` VALUES (405, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 16, 1);
-INSERT INTO `sys_permission` VALUES (406, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 27, 1);
-INSERT INTO `sys_permission` VALUES (407, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 28, 1);
-INSERT INTO `sys_permission` VALUES (408, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 30, 1);
-INSERT INTO `sys_permission` VALUES (409, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 31, 1);
-INSERT INTO `sys_permission` VALUES (410, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 34, 1);
-INSERT INTO `sys_permission` VALUES (411, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 29, 1);
-INSERT INTO `sys_permission` VALUES (412, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 35, 1);
 COMMIT;
 
 -- ----------------------------
@@ -149,7 +133,7 @@ CREATE TABLE `sys_resources` (
   PRIMARY KEY (`id`),
   KEY `FKglxcbhp7kn357vaor242fuj8c` (`parent_id`),
   CONSTRAINT `FKglxcbhp7kn357vaor242fuj8c` FOREIGN KEY (`parent_id`) REFERENCES `sys_resources` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_resources
@@ -173,6 +157,7 @@ INSERT INTO `sys_resources` VALUES (21, b'1', '分配角色', 'ueboot:userRole:s
 INSERT INTO `sys_resources` VALUES (22, b'1', '资源列表查询', 'ueboot:resources:read', NULL, '功能', NULL, NULL, NULL, NULL, NULL, NULL, '角色管理', 5);
 INSERT INTO `sys_resources` VALUES (23, b'1', '权限查询', 'ueboot:userRole:read', NULL, '功能', NULL, NULL, NULL, NULL, NULL, NULL, '角色管理', 5);
 INSERT INTO `sys_resources` VALUES (24, b'1', '权限分配', 'ueboot:userRole:save', NULL, '功能', NULL, NULL, NULL, NULL, NULL, NULL, '角色管理', 5);
+INSERT INTO `sys_resources` VALUES (37, b'1', '钥匙圈', NULL, 1, '菜单组', '{\"fontColor\":\"#FFFFF\"}', NULL, 'root', '2018-12-28 15:17:55', 'root', '2018-12-28 15:17:55', NULL, NULL);
 COMMIT;
 
 -- ----------------------------
