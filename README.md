@@ -7,7 +7,7 @@
     - 后端Java服务，找到com.ueboot.starter.backend.BackEndApplication 类，直接右键Run即可
     - 前端页面，使用命令窗口进入backend/backend-view目录，第一次执行需要先执行yarn install 或者npm install，之后执行 npm run start
     - 前端具体的使用方式查看README.md
-    - 默认账号： root 密码：111111
+    - 默认账号： root 密码：111111 ，最高权限，拥有一切菜单访问权限，不受权限角色控制
 - frontend启动方式与后台管理类似，但是没有默认的登录界面等
 
 # 项目结构与约定说明

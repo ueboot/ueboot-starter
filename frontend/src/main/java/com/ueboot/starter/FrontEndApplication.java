@@ -1,4 +1,4 @@
-package com.ueboot.starter.frontend;
+package com.ueboot.starter;
 
 
 import org.springframework.boot.SpringApplication;
