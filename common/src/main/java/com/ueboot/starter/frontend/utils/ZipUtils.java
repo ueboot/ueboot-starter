@@ -8,6 +8,7 @@ package com.ueboot.starter.frontend.utils;
 
 import com.ueboot.core.exception.BusinessException;
 import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.util.*;
@@ -32,7 +33,7 @@ import java.util.zip.ZipOutputStream;
  * @create: 2018-08-17 下午2:47
  * @version：1.0
  */
-@Log4j
+@Slf4j
 public class ZipUtils {
 
 

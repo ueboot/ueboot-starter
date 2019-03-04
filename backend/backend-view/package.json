@@ -14,8 +14,7 @@
     "test": "npm run unit && npm run e2e",
     "build": "npm run lint && npm run style && node build/build.js"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "axios": "^0.18.0",
@@ -82,7 +81,6 @@
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0"
-
   },
   "engines": {
     "node": ">= 6.0.0",

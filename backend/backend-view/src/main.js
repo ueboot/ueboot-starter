@@ -17,10 +17,10 @@ Vue.use(iView)
 ueboot.Config.setConfig({
   logoImage: 'static/image/ueboot.png',
   sysTitle: '后台管理系统',
-  page_login:{
+  page_login: {
     theme: 'theme2',
-    //登录成功后的跳转路径
-    successRouter:{path:'/ueboot/shiro/User'},
+    // 登录成功后的跳转路径
+    successRouter: {path: '/ueboot/shiro/User'}
   },
   page_main: {
     logoStyle: {
