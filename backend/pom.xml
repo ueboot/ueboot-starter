@@ -36,15 +36,9 @@
             <artifactId>maven-filtering</artifactId>
             <version>3.1.1</version>
         </dependency>
+
     </dependencies>
     <build>
-        <!--定义资源文件路径-->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

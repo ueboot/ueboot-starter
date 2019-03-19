@@ -15,5 +15,24 @@
             <groupId>com.ueboot.starter</groupId>
             <artifactId>repository</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.bstek.uflo</groupId>
+            <artifactId>uflo-console</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>javassist</artifactId>
+                    <groupId>javassist</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-dbcp</artifactId>
+            <version>9.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
     </dependencies>
 </project>

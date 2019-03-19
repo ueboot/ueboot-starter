@@ -51,7 +51,7 @@ module.exports = {
 
     // 指定构建后，将打包文件存放的路径
     assetsRoot: path.resolve(__dirname, '../dist/static'),
-    assetsSubDirectory: '',
+    assetsSubDirectory: 'static',
     //指定代码当中引用到相对路径的地方，替换为以下指定路径
     assetsPublicPath: './',
 

@@ -22,7 +22,7 @@ spring:
     open-in-view: true
     database: mysql
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL57InnoDBDialect
@@ -60,10 +60,10 @@ spring:
 logging:
   level:
     root: info
-    # 设置显示sql参数值
-#    org.hibernate: info
-#    org.hibernate.type.descriptor.sql.BasicBinder: trace
-#    org.hibernate.type.descriptor.sql.BasicExtractor: trace
+#     设置显示sql参数值
+    org.hibernate: info
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace
 jasypt:
   encryptor:
     # 加密用到的秘钥
