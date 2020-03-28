@@ -6,24 +6,7 @@
  */
 package com.ueboot.starter.frontend.utils;
 
-/**
- * <p>
- * Title: 数字处理
- * </p>
- * <p>
- * Description:
- * </p>
- * <p>
- * Copyright: Copyright (c) 2018
- * </p>
- * <p>
- * Company: XiQiao
- * </p>
- *
- * @author: andy
- * @create: 2018-08-22 下午4:17
- * @version：1.0
- */
+
 public class NumberUtils {
 
     /**

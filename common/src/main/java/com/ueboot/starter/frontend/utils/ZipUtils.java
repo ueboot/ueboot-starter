@@ -15,24 +15,6 @@ import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-/**
- * <p>
- * Title:
- * </p>
- * <p>
- * Description:
- * </p>
- * <p>
- * Copyright: Copyright (c) 2018
- * </p>
- * <p>
- * Company: XiQiao
- * </p>
- *
- * @author: andy
- * @create: 2018-08-17 下午2:47
- * @version：1.0
- */
 @Slf4j
 public class ZipUtils {
 
@@ -235,47 +217,5 @@ public class ZipUtils {
                 }
             }
         }
-    }
-
-    public static void main(String[] args) throws Exception {
-//        /** 测试压缩方法1  */
-//        FileOutputStream fos1 = new FileOutputStream(new File("./mytest01.zip"));
-//        ZipUtils.toZip("./log", fos1, true);
-//
-        /** 测试压缩方法2  */
-        List<File> fileList = new ArrayList<>();
-        File file1 = new File("./a1.text");
-        file1.createNewFile();
-        File file2 = new File("./a2.text");
-        file2.createNewFile();
-        fileList.add(file1);
-        fileList.add(file2);
-        FileOutputStream fos2 = new FileOutputStream(new File("./mytest02.zip"));
-        ZipUtils.toZip(fileList, fos2);
-
-
-//        List<Map<String, File>> files = new ArrayList<>();
-//        Map<String, File> map1 = new HashMap<>();
-//        File a1 = new File("./" + File.separator + "测试" + File.separator + "A");
-//        a1.mkdirs();
-//        File a1t = new File("./" + File.separator + "测试" + File.separator + "A" + File.separator + "a1.text");
-//        a1t.createNewFile();
-//        map1.put("测试"+File.separator+"A"+File.separator+"a1.text", a1);
-//        File a2 = new File("./a2.text");
-//        a2.createNewFile();
-//        map1.put("测试"+File.separator+"A"+File.separator+"a2.text", a2);
-//        Map<String, File> map2 = new HashMap<>();
-//        File a3 = new File("./a3.txt");
-//        a3.createNewFile();
-//        map2.put("测试"+File.separator+"B"+File.separator+"aa.txt", a3);
-//        files.add(map1);
-//        files.add(map2);
-//        File zipFile = new File("./测试.zip");
-//        FileOutputStream out = new FileOutputStream(zipFile);
-//        ZipOutputStream fos = new ZipOutputStream(out);
-//        ZipUtils.toZip(files, fos);
-//        ZipUtils.toZip("./" + File.separator + "测试", out, true);
-//        ZipUtils.toZip("./测试/A","./测试/"+ System.currentTimeMillis() +".zip");
-
     }
 }
