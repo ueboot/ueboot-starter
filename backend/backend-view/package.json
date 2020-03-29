@@ -1,94 +1,96 @@
 {
   "name": "backend",
-  "version": "1.0.0",
-  "description": "A Vue.js project Base ueboot",
-  "author": "ueboot",
-  "private": true,
+  "version": "0.0.1",
   "scripts": {
-    "_dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "lint": "eslint  --fix  --ext .js,.vue src",
-    "style": "stylelint  --fix  .css,.vue src",
-    "start": "npm run lint && npm run style && npm run _dev",
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    "e2e": "node test/e2e/runner.js",
-    "test": "npm run unit && npm run e2e",
-    "build": "npm run lint && npm run style && node build/build.js"
+    "clean": "npm cache clean -f",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "inspect": "vue-cli-service inspect",
+    "update-dadi": "npm update",
+    "update-xiqiao": "rm -rf package-lock.json && npm update uecomponents --registry http://npm.xiqiao.io && npm update ctviews --registry http://npm.xiqiao.io",
+    "lint": "vue-cli-service lint --fix"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "autoprefixer": "^7.1.2",
-    "axios": "^0.18.0",
-    "babel-core": "^6.22.1",
-    "babel-helper-vue-jsx-merge-props": "^2.0.3",
-    "babel-loader": "^7.1.1",
-    "babel-plugin-istanbul": "^4.1.1",
-    "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-transform-runtime": "^6.22.0",
-    "babel-plugin-transform-vue-jsx": "^3.5.0",
-    "babel-preset-env": "^1.3.2",
-    "babel-preset-stage-2": "^6.22.0",
-    "babel-register": "^6.22.0",
-    "chai": "^4.2.0",
-    "chalk": "^2.0.1",
-    "copy-webpack-plugin": "^4.0.1",
-    "cross-env": "^5.0.1",
-    "cross-spawn": "^5.0.1",
-    "css-loader": "^0.28.0",
-    "eslint": "^5.6.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "eslint-plugin-vue": "^5.0.0-beta.1",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "file-loader": "^1.1.4",
-    "font-awesome": "^4.7.0",
-    "friendly-errors-webpack-plugin": "^1.6.1",
-    "html-webpack-plugin": "^2.30.1",
-    "inject-loader": "^3.0.0",
-    "iview": "^3.1.3",
-    "less": "^3.8.1",
-    "less-loader": "^4.1.0",
-    "mocha": "^3.2.0",
-    "nightwatch": "^0.9.12",
-    "node-notifier": "^5.1.2",
-    "open-browser-webpack-plugin": "0.0.5",
-    "optimize-css-assets-webpack-plugin": "^3.2.0",
-    "ora": "^1.2.0",
-    "portfinder": "^1.0.13",
-    "postcss-import": "^11.0.0",
-    "postcss-loader": "^2.0.8",
-    "postcss-url": "^7.2.1",
-    "rimraf": "^2.6.0",
-    "semver": "^5.3.0",
-    "shelljs": "^0.7.6",
-    "sinon": "^4.0.0",
-    "sinon-chai": "^2.8.0",
-    "stylelint": "^9.6.0",
-    "stylelint-config-standard": "^18.2.0",
-    "stylelint-webpack-plugin": "^0.10.5",
-    "ueboot": "^1.7.39",
-    "uglifyjs-webpack-plugin": "^1.1.1",
-    "url-loader": "^0.5.8",
-    "vue": "^2.5.2",
-    "vue-color": "^2.6.0",
-    "vue-loader": "^13.3.0",
-    "vue-router": "^3.0.1",
-    "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.5.2",
-    "webpack": "^3.6.0",
-    "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+  "main": "src/main.js",
+  "files": [
+    "src"
+  ],
+  "dependencies": {
+    "@vue/cli-plugin-babel": "^4.2.3",
+    "@vue/cli-plugin-eslint": "^4.2.3",
+    "@vue/cli-service": "^4.2.3",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "axios": "^0.19.2",
+    "core-js": "^3.6.4",
+    "deep-extend": "^0.6.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-vue-libs": "^4.0.0",
+    "is-function": "^1.0.1",
+    "less": "2.7.3",
+    "less-loader": "5.0.0",
+    "moment": "^2.24.0",
+    "postcss": "^7.0.27",
+    "postcss-loader": "^3.0.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "ueboot": "^2.1.4",
+    "view-design": "^4.1.3",
+    "vue": "^2.6.11",
+    "vuex": "^3.1.3",
+    "vue-router": "latest"
   },
-  "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "vue/html-end-tags": "error",
+      "vue/eqeqeq": "1",
+      "semi": [
+        1,
+        "always"
+      ],
+      "no-console": "off",
+      "no-var": 0,
+      "no-eq-null": 1,
+      "no-unused-vars": 1,
+      "no-multi-spaces": 1,
+      "vue/no-unused-vars": 1,
+      "vue/no-use-v-if-with-v-for": 1,
+      "vue/no-unused-components": 1,
+      "vue/valid-v-for": 1,
+      "no-undef": 1,
+      "no-multiple-empty-lines": [
+        1,
+        {
+          "max": 2
+        }
+      ],
+      "comma-style": [
+        1,
+        "last"
+      ]
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 8"
-  ]
+    "ie >=9"
+  ],
+  "devDependencies": {
+    "vue-template-compiler": "^2.6.11"
+  }
 }

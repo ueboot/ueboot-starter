@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // ueboot提供的权限管理UI界面
-import {PageLogin, PageMain, PageShiroUser, PageShiroRole, PageShiroResources} from 'ueboot'
+import ueboot from 'ueboot'
 
 import HelloWorld from '../views/HelloWorld'
 
@@ -14,7 +14,7 @@ Vue.use(Router)
 const LoginRouter = {
   path: '/login',
   name: 'login',
-  component: PageLogin
+  component: ueboot.PageLogin
 }
 
 /**
@@ -31,22 +31,22 @@ const CustomerRouter = {
  */
 const UebootShiroRouter = {
   path: '/',
-  component: PageMain,
+  component: ueboot.PageMain,
   children: [
     {
       path: '/ueboot/shiro/User',
       name: 'User',
-      component: PageShiroUser
+      component: ueboot.PageShiroUser
     },
     {
       path: '/ueboot/shiro/Role',
       name: 'Role',
-      component: PageShiroRole
+      component: ueboot.PageShiroRole
     },
     {
       path: '/ueboot/shiro/Resources',
       name: 'Resources',
-      component: PageShiroResources
+      component: ueboot.PageShiroResources
     }
   ]
 }
