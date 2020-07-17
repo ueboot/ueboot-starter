@@ -12,16 +12,21 @@ Vue.use(ueboot);
 
 /* 设置登录后的主界面相关配置 */
 ueboot.Config.setConfig({
-  logoImage: 'public/image/ueboot.png',
+  logoImage: '/public/image/ueboot.png',
   sysTitle: '后台管理系统',
   page_login: {
     theme: 'theme2',
+    logoStyle:'width:100px;height:30px;',
     // 登录成功后的跳转路径
     successRouter: {path: '/ueboot/shiro/User'}
   },
   page_main: {
     logoStyle: {
       width: '300px'
+    },
+    logoImageStyle:{
+      width: "80px",
+      height: "50%"
     },
     menuWidth: 250,
     logoutSuccessRouter: {name: 'login'}
