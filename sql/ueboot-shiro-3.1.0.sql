@@ -1,4 +1,16 @@
+/*
+ Navicat Premium Data Transfer
 
+ Source Server Type    : MySQL
+ Source Server Version : 80018
+ Source Schema         : action-dev
+
+ Target Server Type    : MySQL
+ Target Server Version : 80018
+ File Encoding         : 65001
+
+ Date: 17/07/2020 18:10:47
+*/
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
@@ -7,66 +19,73 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Table structure for operation_log
 -- ----------------------------
 DROP TABLE IF EXISTS `operation_log`;
-CREATE TABLE `operation_log` (
+CREATE TABLE `operation_log`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `created_by` bigint(20) DEFAULT NULL,
-  `created_date` datetime(6) DEFAULT NULL,
-  `last_modified_by` bigint(20) DEFAULT NULL,
-  `last_modified_date` datetime(6) DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  `user_no` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `created_by` bigint(20) NULL DEFAULT NULL,
+  `created_date` datetime(6) NULL DEFAULT NULL,
+  `last_modified_by` bigint(20) NULL DEFAULT NULL,
+  `last_modified_date` datetime(6) NULL DEFAULT NULL,
+  `user_id` bigint(20) NULL DEFAULT NULL,
+  `user_no` bigint(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of operation_log
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for sys_organization
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_organization`;
-CREATE TABLE `sys_organization` (
+CREATE TABLE `sys_organization`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `created_by` bigint(20) DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `last_modified_by` bigint(20) DEFAULT NULL,
-  `last_modified_date` datetime DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `available` bit(1) DEFAULT NULL,
-  `code` varchar(255) DEFAULT NULL,
-  `level` bigint(20) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `parent_code` varchar(255) DEFAULT NULL,
-  `parent_path` varchar(255) DEFAULT NULL,
-  `telephone` varchar(255) DEFAULT NULL,
-  `type` enum('机构','部门') DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `created_by` bigint(20) NULL DEFAULT NULL,
+  `created_date` datetime(0) NULL DEFAULT NULL,
+  `last_modified_by` bigint(20) NULL DEFAULT NULL,
+  `last_modified_date` datetime(0) NULL DEFAULT NULL,
+  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `available` bit(1) NULL DEFAULT NULL,
+  `code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `level` bigint(20) NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `parent_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `parent_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `telephone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `type` enum('机构','部门') CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_organization
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for sys_permission
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_permission`;
-CREATE TABLE `sys_permission` (
+CREATE TABLE `sys_permission`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `resource_code` varchar(255) DEFAULT NULL,
-  `role_code` varchar(255) DEFAULT NULL,
-  `created_by` varchar(40) DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `last_modified_by` varchar(40) DEFAULT NULL,
-  `last_modified_date` datetime DEFAULT NULL,
-  `resource_id` bigint(20) DEFAULT NULL,
-  `role_id` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK73ogamir4f5eqt48s14524sdt` (`resource_code`),
-  KEY `FKaoemqa19twbb9o8e5xq6am0c7` (`role_code`),
-  KEY `FKcv8ki936tcaenkg3s8oc8j52n` (`resource_id`),
-  KEY `FKk9ru2110pc5m5ja96jh0dth0j` (`role_id`),
-  CONSTRAINT `FKcv8ki936tcaenkg3s8oc8j52n` FOREIGN KEY (`resource_id`) REFERENCES `sys_resources` (`id`),
-  CONSTRAINT `FKk9ru2110pc5m5ja96jh0dth0j` FOREIGN KEY (`role_id`) REFERENCES `sys_role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=413 DEFAULT CHARSET=utf8;
+  `resource_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `role_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `created_by` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `created_date` datetime(0) NULL DEFAULT NULL,
+  `last_modified_by` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `last_modified_date` datetime(0) NULL DEFAULT NULL,
+  `resource_id` bigint(20) NULL DEFAULT NULL,
+  `role_id` bigint(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `FK73ogamir4f5eqt48s14524sdt`(`resource_code`) USING BTREE,
+  INDEX `FKaoemqa19twbb9o8e5xq6am0c7`(`role_code`) USING BTREE,
+  INDEX `FKcv8ki936tcaenkg3s8oc8j52n`(`resource_id`) USING BTREE,
+  INDEX `FKk9ru2110pc5m5ja96jh0dth0j`(`role_id`) USING BTREE,
+  CONSTRAINT `FKcv8ki936tcaenkg3s8oc8j52n` FOREIGN KEY (`resource_id`) REFERENCES `sys_resources` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FKk9ru2110pc5m5ja96jh0dth0j` FOREIGN KEY (`role_id`) REFERENCES `sys_role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 413 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_permission
 -- ----------------------------
-BEGIN;
 INSERT INTO `sys_permission` VALUES (327, NULL, NULL, 'root', '2018-10-15 08:43:27', 'root', '2018-10-15 08:43:27', 3, 5);
 INSERT INTO `sys_permission` VALUES (328, NULL, NULL, 'root', '2018-10-15 08:43:27', 'root', '2018-10-15 08:43:27', 4, 5);
 INSERT INTO `sys_permission` VALUES (329, NULL, NULL, 'root', '2018-10-15 08:43:27', 'root', '2018-10-15 08:43:27', 9, 5);
@@ -109,36 +128,34 @@ INSERT INTO `sys_permission` VALUES (402, NULL, NULL, 'root', '2018-10-23 23:38:
 INSERT INTO `sys_permission` VALUES (403, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 14, 1);
 INSERT INTO `sys_permission` VALUES (404, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 15, 1);
 INSERT INTO `sys_permission` VALUES (405, NULL, NULL, 'root', '2018-10-23 23:38:40', 'root', '2018-10-23 23:38:40', 16, 1);
-COMMIT;
 
 -- ----------------------------
 -- Table structure for sys_resources
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_resources`;
-CREATE TABLE `sys_resources` (
+CREATE TABLE `sys_resources`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `available` bit(1) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `permission` varchar(255) DEFAULT NULL,
-  `rank_` bigint(20) DEFAULT NULL,
-  `resource_type` enum('菜单组','菜单','功能','其他') DEFAULT NULL,
-  `theme_json` varchar(255) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
-  `created_by` varchar(20) DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `last_modified_by` varchar(20) DEFAULT NULL,
-  `last_modified_date` datetime DEFAULT NULL,
-  `parent_name` varchar(255) DEFAULT NULL,
-  `parent_id` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKglxcbhp7kn357vaor242fuj8c` (`parent_id`),
-  CONSTRAINT `FKglxcbhp7kn357vaor242fuj8c` FOREIGN KEY (`parent_id`) REFERENCES `sys_resources` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+  `available` bit(1) NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `permission` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `rank_` bigint(20) NULL DEFAULT NULL,
+  `resource_type` enum('菜单组','菜单','功能','其他') CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `theme_json` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `created_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `created_date` datetime(0) NULL DEFAULT NULL,
+  `last_modified_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `last_modified_date` datetime(0) NULL DEFAULT NULL,
+  `parent_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `parent_id` bigint(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `FKglxcbhp7kn357vaor242fuj8c`(`parent_id`) USING BTREE,
+  CONSTRAINT `FKglxcbhp7kn357vaor242fuj8c` FOREIGN KEY (`parent_id`) REFERENCES `sys_resources` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_resources
 -- ----------------------------
-BEGIN;
 INSERT INTO `sys_resources` VALUES (3, b'1', '权限管理', NULL, 1, '菜单组', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `sys_resources` VALUES (4, b'1', '用户管理', 'ueboot:user:read', 999, '菜单', NULL, '/ueboot/shiro/User', NULL, NULL, 'root', '2018-09-08 09:55:51', '权限管理', 3);
 INSERT INTO `sys_resources` VALUES (5, b'1', '角色管理', 'ueboot:role:read', 998, '菜单', NULL, '/ueboot/shiro/Role', NULL, NULL, 'root', '2018-09-08 09:55:58', '权限管理', 3);
@@ -158,94 +175,88 @@ INSERT INTO `sys_resources` VALUES (22, b'1', '资源列表查询', 'ueboot:reso
 INSERT INTO `sys_resources` VALUES (23, b'1', '权限查询', 'ueboot:userRole:read', NULL, '功能', NULL, NULL, NULL, NULL, NULL, NULL, '角色管理', 5);
 INSERT INTO `sys_resources` VALUES (24, b'1', '权限分配', 'ueboot:userRole:save', NULL, '功能', NULL, NULL, NULL, NULL, NULL, NULL, '角色管理', 5);
 INSERT INTO `sys_resources` VALUES (37, b'1', '钥匙圈', NULL, 1, '菜单组', '{\"fontColor\":\"#FFFFF\"}', NULL, 'root', '2018-12-28 15:17:55', 'root', '2018-12-28 15:17:55', NULL, NULL);
-COMMIT;
 
 -- ----------------------------
 -- Table structure for sys_role
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role`;
-CREATE TABLE `sys_role` (
+CREATE TABLE `sys_role`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `created_by` varchar(50) DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `last_modified_by` varchar(50) DEFAULT NULL,
-  `last_modified_date` datetime DEFAULT NULL,
-  `available` bit(1) DEFAULT NULL,
-  `code` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `org_code` varchar(255) DEFAULT NULL,
-  `role` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UK_plpigyqwsqfn7mn66npgf9ftp` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `created_by` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `created_date` datetime(0) NULL DEFAULT NULL,
+  `last_modified_by` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `last_modified_date` datetime(0) NULL DEFAULT NULL,
+  `available` bit(1) NULL DEFAULT NULL,
+  `code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `org_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `role` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `UK_plpigyqwsqfn7mn66npgf9ftp`(`code`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-BEGIN;
 INSERT INTO `sys_role` VALUES (1, NULL, NULL, NULL, NULL, b'1', NULL, '最高用户权限', '超级管理员', NULL, NULL);
 INSERT INTO `sys_role` VALUES (2, NULL, NULL, NULL, NULL, b'1', NULL, NULL, '业务管理员', NULL, NULL);
 INSERT INTO `sys_role` VALUES (5, 'root', '2018-10-01 13:01:09', 'root', '2018-10-01 13:01:09', b'1', NULL, 'NAME_TEST', 'NAME_TEST', NULL, NULL);
-COMMIT;
 
 -- ----------------------------
 -- Table structure for sys_user
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
-CREATE TABLE `sys_user` (
+CREATE TABLE `sys_user`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `created_by` varchar(20) DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `last_modified_by` varchar(20) DEFAULT NULL,
-  `last_modified_date` datetime DEFAULT NULL,
-  `org_code` varchar(255) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `credential_expired_date` datetime DEFAULT NULL,
-  `is_locked` bit(1) DEFAULT NULL,
-  `role_names` varchar(255) DEFAULT NULL,
-  `role_ids` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+  `created_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `created_date` datetime(0) NULL DEFAULT NULL,
+  `last_modified_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `last_modified_date` datetime(0) NULL DEFAULT NULL,
+  `org_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `credential_expired_date` datetime(0) NULL DEFAULT NULL,
+  `is_locked` bit(1) NULL DEFAULT NULL,
+  `role_names` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `role_ids` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `valid` bit(1) NULL DEFAULT NULL COMMENT '是否有效',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-BEGIN;
-INSERT INTO `sys_user` VALUES (1, NULL, NULL, 'root', '2018-10-13 23:50:51', NULL, 'd71e762f824bd6f39c505fa6804a3a20f3dc7e2fd8b4a0a5691bfd5326c061e2d84a0ee306a864955599f92c03840c5db3706a21484e8a0ee35539951e1f042b', 'root', '2019-03-30 14:18:21', b'0', '超级管理员,业务管理员', '1,2,');
-INSERT INTO `sys_user` VALUES (2, NULL, NULL, 'root', '2018-10-13 23:50:46', NULL, 'd02db260d58a26d777bfa1c8dd41b2a0492024e64cd69c3401223dcea60c8b3d2a44276748e0de9e763b630e84ef1a362b8ed370a9849a2346df769a25c3f8f3', 'admin', '2019-03-30 17:42:45', b'0', '', '');
-INSERT INTO `sys_user` VALUES (6, NULL, NULL, NULL, '2018-09-04 20:33:24', NULL, '5c83a5d1967a3d317daeb97a6ec6bd16d508d1f595c6f32acaa24b760556afbbf7565ee87205bf313d0e6956ff6e26121a3a454e155a5cff118f77dc78963730', 'test', '2019-03-04 20:33:24', b'0', '', '');
-INSERT INTO `sys_user` VALUES (7, NULL, '2018-09-04 20:33:13', 'root', '2018-10-13 23:50:28', NULL, '487aa1bb7ee37abe3b4f7c696b7fdc95246b9f3059da58f9b84ee6fe9e294ce02d895b0ef9a78acce65224ff439e042043075b78f1d4c3c26f22b8037982eef1', 'test2', '2019-03-04 20:45:38', b'0', '', '');
-INSERT INTO `sys_user` VALUES (9, 'root', '2018-09-30 18:48:37', 'root', '2018-10-01 13:01:54', NULL, 'c3e12da9af6b5b518ea96e77b313550f40885c73198ac67f0b57b1af90f0f67950b7f32c57180529e18081847c1b4640a459b6358abf6cbe48591119bb1bce19', '111', '2019-03-30 18:48:37', b'0', 'NAME_TEST', '5,');
-COMMIT;
+INSERT INTO `sys_user` VALUES (1, NULL, NULL, 'root', '2018-10-13 23:50:51', NULL, 'd71e762f824bd6f39c505fa6804a3a20f3dc7e2fd8b4a0a5691bfd5326c061e2d84a0ee306a864955599f92c03840c5db3706a21484e8a0ee35539951e1f042b', 'root', '2021-12-30 14:18:21', b'0', '超级管理员,业务管理员', '1,2,', b'1');
+INSERT INTO `sys_user` VALUES (2, NULL, NULL, 'root', '2018-10-13 23:50:46', NULL, 'd02db260d58a26d777bfa1c8dd41b2a0492024e64cd69c3401223dcea60c8b3d2a44276748e0de9e763b630e84ef1a362b8ed370a9849a2346df769a25c3f8f3', 'admin', '2021-01-01 17:42:45', b'0', '', '', b'1');
+INSERT INTO `sys_user` VALUES (6, NULL, NULL, NULL, '2018-09-04 20:33:24', NULL, '5c83a5d1967a3d317daeb97a6ec6bd16d508d1f595c6f32acaa24b760556afbbf7565ee87205bf313d0e6956ff6e26121a3a454e155a5cff118f77dc78963730', 'test', '2021-07-29 20:33:24', b'0', '', '', b'1');
+INSERT INTO `sys_user` VALUES (7, NULL, '2018-09-04 20:33:13', 'root', '2018-10-13 23:50:28', NULL, '487aa1bb7ee37abe3b4f7c696b7fdc95246b9f3059da58f9b84ee6fe9e294ce02d895b0ef9a78acce65224ff439e042043075b78f1d4c3c26f22b8037982eef1', 'test2', '2021-11-04 20:45:38', b'0', '', '', b'1');
+INSERT INTO `sys_user` VALUES (9, 'root', '2018-09-30 18:48:37', 'root', '2018-10-01 13:01:54', NULL, 'c3e12da9af6b5b518ea96e77b313550f40885c73198ac67f0b57b1af90f0f67950b7f32c57180529e18081847c1b4640a459b6358abf6cbe48591119bb1bce19', '111', '2021-11-01 18:48:37', b'0', 'NAME_TEST', '5,', b'1');
 
 -- ----------------------------
 -- Table structure for sys_user_role
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_role`;
-CREATE TABLE `sys_user_role` (
+CREATE TABLE `sys_user_role`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `role_id` bigint(20) DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  `created_by` varchar(255) DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `last_modified_by` varchar(255) DEFAULT NULL,
-  `last_modified_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKhh52n8vd4ny9ff4x9fb8v65qx` (`role_id`),
-  KEY `FKb40xxfch70f5qnyfw8yme1n1s` (`user_id`),
-  CONSTRAINT `FKb40xxfch70f5qnyfw8yme1n1s` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`id`),
-  CONSTRAINT `FKhh52n8vd4ny9ff4x9fb8v65qx` FOREIGN KEY (`role_id`) REFERENCES `sys_role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+  `role_id` bigint(20) NULL DEFAULT NULL,
+  `user_id` bigint(20) NULL DEFAULT NULL,
+  `created_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `created_date` datetime(0) NULL DEFAULT NULL,
+  `last_modified_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `last_modified_date` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `FKhh52n8vd4ny9ff4x9fb8v65qx`(`role_id`) USING BTREE,
+  INDEX `FKb40xxfch70f5qnyfw8yme1n1s`(`user_id`) USING BTREE,
+  CONSTRAINT `FKb40xxfch70f5qnyfw8yme1n1s` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FKhh52n8vd4ny9ff4x9fb8v65qx` FOREIGN KEY (`role_id`) REFERENCES `sys_role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_user_role
 -- ----------------------------
-BEGIN;
 INSERT INTO `sys_user_role` VALUES (32, 5, 9, 'root', '2018-10-01 13:01:54', 'root', '2018-10-01 13:01:54');
 INSERT INTO `sys_user_role` VALUES (33, 1, 1, 'root', '2018-10-13 23:50:51', 'root', '2018-10-13 23:50:51');
 INSERT INTO `sys_user_role` VALUES (34, 2, 1, 'root', '2018-10-13 23:50:51', 'root', '2018-10-13 23:50:51');
-COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

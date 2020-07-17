@@ -6,6 +6,8 @@
 # 编译打包
 - 本地执行`yarn run build`
 - 可以在webpack配置文件中将打包的文件直接放到java工程当中
+# 前台启动
+
 # 配置修改
 - 本地代理
   ```angular2html
