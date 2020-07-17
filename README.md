@@ -1,3 +1,7 @@
+# 官方网站
+- http://www.ueboot.com 查看具体的功能介绍和和截图
+- 基础框架来源： https://github.com/ueboot/ueboot.git
+
 # 快速使用
 - 前提条件，需要有Mysql数据库、Redis服务、JDK1.8
 - 代码checkout后，使用IDEA导入，或者Eclipse都可以,当前项目采用maven构建
