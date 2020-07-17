@@ -26,7 +26,7 @@ ueboot.Config.setConfig({
     menuWidth: 250,
     logoutSuccessRouter: {name: 'login'}
   },
-  axios: {baseURL: 'backend', unauthorizedUrl: process.env.CONTEXT_HTML + '/#/login'}
+  axios: {baseURL: '/backend', unauthorizedUrl: process.env.CONTEXT_HTML + '/#/login'}
 });
 Vue.config.productionTip = false;
 
