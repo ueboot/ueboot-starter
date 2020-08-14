@@ -37,7 +37,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 本地开发需要自己配置对应的数据库，采用加密方式
     url: ENC(azN5gtD4LMtsos/l7pvuBmzcQursb1W5K7Sn3chpKB+DA/Xa97M9kDhOU9yAXuIrDkQu8c0lyPEa2B9mmgIelIIcnCCi8zAFM07esAcpJDCkTdBUoe0GpZGx1t72M35Fbh4uTHiITiHFAcYhPes6Am0C60luD4mCc+7VeqXAR1fMdjnqmmtkZRw+CsVLYApt)
-    #url: jdbc:mysql://127.0.0.1:3306/ueboot-shiro?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    #url: jdbc:mysql://127.0.0.1:3306/ueboot-shiro?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
     username: root
     # 加密后的密码
     password: ENC(xIOpQ585xlp0nREocHniEa/v5Ybdqx2W)
