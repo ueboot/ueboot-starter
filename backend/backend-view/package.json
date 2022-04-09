@@ -28,7 +28,7 @@
     "is-function": "^1.0.1",
     "less": "2.7.3",
     "less-loader": "5.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "postcss": "^7.0.27",
     "postcss-loader": "^3.0.0",
     "stylus": "^0.54.7",
